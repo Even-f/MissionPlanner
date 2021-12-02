@@ -7700,5 +7700,25 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
             if (MainMap.Zoom < 17)
                 MainMap.Zoom = 17;
         }
+
+        private void zyf_send_Click(object sender, EventArgs e)
+        {
+            MAVLink.mavlink_local_position_ned_t payload = new MAVLink.mavlink_local_position_ned_t();
+
+            payload.time_boot_ms = 2;
+            payload.x = 11;
+            payload.y = 23;
+            payload.z = 34;
+            payload.vx = 2;
+            payload.vy = 5;
+            payload.vz = 3;
+
+            MainV2.comPort.sendPacket(payload, MainV2.comPort.sysidcurrent,MainV2.comPort.compidcurrent);
+        }
+
+        private void zyf_accept_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
