@@ -7714,11 +7714,14 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
             payload.vz = 3;
 
             MainV2.comPort.sendPacket(payload, MainV2.comPort.sysidcurrent,MainV2.comPort.compidcurrent);
+
+            zyf_accept.Text = Convert.ToString(MainV2.comPort.MAV.cs.HomeLocation.Alt);
+
         }
 
         private void zyf_accept_TextChanged(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
