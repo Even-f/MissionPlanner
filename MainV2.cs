@@ -38,10 +38,11 @@ using System.Linq;
 using MissionPlanner.Joystick;
 using System.Net;
 using Newtonsoft.Json;
+using CCWin;
 
 namespace MissionPlanner
 {
-    public partial class MainV2 : Form
+    public partial class MainV2 : Skin_Mac
     {
         private static readonly ILog log =
             LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -55,14 +56,14 @@ namespace MissionPlanner
             public abstract Image fp { get; }
             public abstract Image initsetup { get; }
             public abstract Image config_tuning { get; }
-            public abstract Image sim { get; }
-            public abstract Image terminal { get; }
-            public abstract Image help { get; }
-            public abstract Image donate { get; }
+            //public abstract Image sim { get; }
+            //public abstract Image terminal { get; }
+            //public abstract Image help { get; }
+            //public abstract Image donate { get; }
             public abstract Image connect { get; }
             public abstract Image disconnect { get; }
             public abstract Image bg { get; }
-            public abstract Image wizard { get; }
+            //public abstract Image wizard { get; }
         }
 
 
@@ -112,49 +113,49 @@ namespace MissionPlanner
                 }
             }
 
-            public override Image sim
-            {
-                get
-                {
-                    if (File.Exists($"{running_directory}light_simulation_icon.png"))
-                        return Image.FromFile($"{running_directory}light_simulation_icon.png");
-                    else
-                        return global::MissionPlanner.Properties.Resources.light_simulation_icon;
-                }
-            }
+            //public override Image sim
+            //{
+            //    get
+            //    {
+            //        if (File.Exists($"{running_directory}light_simulation_icon.png"))
+            //            return Image.FromFile($"{running_directory}light_simulation_icon.png");
+            //        else
+            //            return global::MissionPlanner.Properties.Resources.light_simulation_icon;
+            //    }
+            //}
 
-            public override Image terminal
-            {
-                get
-                {
-                    if (File.Exists($"{running_directory}light_terminal_icon.png"))
-                        return Image.FromFile($"{running_directory}light_terminal_icon.png");
-                    else
-                        return global::MissionPlanner.Properties.Resources.light_terminal_icon;
-                }
-            }
+            //public override Image terminal
+            //{
+            //    get
+            //    {
+            //        if (File.Exists($"{running_directory}light_terminal_icon.png"))
+            //            return Image.FromFile($"{running_directory}light_terminal_icon.png");
+            //        else
+            //            return global::MissionPlanner.Properties.Resources.light_terminal_icon;
+            //    }
+            //}
 
-            public override Image help
-            {
-                get
-                {
-                    if (File.Exists($"{running_directory}light_help_icon.png"))
-                        return Image.FromFile($"{running_directory}light_help_icon.png");
-                    else
-                        return global::MissionPlanner.Properties.Resources.light_help_icon;
-                }
-            }
+            //public override Image help
+            //{
+            //    get
+            //    {
+            //        if (File.Exists($"{running_directory}light_help_icon.png"))
+            //            return Image.FromFile($"{running_directory}light_help_icon.png");
+            //        else
+            //            return global::MissionPlanner.Properties.Resources.light_help_icon;
+            //    }
+            //}
 
-            public override Image donate
-            {
-                get
-                {
-                    if (File.Exists($"{running_directory}light_donate_icon.png"))
-                        return Image.FromFile($"{running_directory}light_donate_icon.png");
-                    else
-                        return global::MissionPlanner.Properties.Resources.donate;
-                }
-            }
+            //public override Image donate
+            //{
+            //    get
+            //    {
+            //        if (File.Exists($"{running_directory}light_donate_icon.png"))
+            //            return Image.FromFile($"{running_directory}light_donate_icon.png");
+            //        else
+            //            return global::MissionPlanner.Properties.Resources.donate;
+            //    }
+            //}
 
             public override Image connect
             {
@@ -189,16 +190,16 @@ namespace MissionPlanner
                 }
             }
 
-            public override Image wizard
-            {
-                get
-                {
-                    if (File.Exists($"{running_directory}light_wizard_icon.png"))
-                        return Image.FromFile($"{running_directory}light_wizard_icon.png");
-                    else
-                        return global::MissionPlanner.Properties.Resources.wizardicon;
-                }
-            }
+            //public override Image wizard
+            //{
+            //    get
+            //    {
+            //        if (File.Exists($"{running_directory}light_wizard_icon.png"))
+            //            return Image.FromFile($"{running_directory}light_wizard_icon.png");
+            //        else
+            //            return global::MissionPlanner.Properties.Resources.wizardicon;
+            //    }
+            //}
         }
 
         public class highcontrastmenuicons : menuicons
@@ -249,49 +250,49 @@ namespace MissionPlanner
                 }
             }
 
-            public override Image sim
-            {
-                get
-                {
-                    if (File.Exists($"{running_directory}dark_simulation_icon.png"))
-                        return Image.FromFile($"{running_directory}dark_simulation_icon.png");
-                    else
-                        return global::MissionPlanner.Properties.Resources.dark_simulation_icon;
-                }
-            }
+            //public override Image sim
+            //{
+            //    get
+            //    {
+            //        if (File.Exists($"{running_directory}dark_simulation_icon.png"))
+            //            return Image.FromFile($"{running_directory}dark_simulation_icon.png");
+            //        else
+            //            return global::MissionPlanner.Properties.Resources.dark_simulation_icon;
+            //    }
+            //}
 
-            public override Image terminal
-            {
-                get
-                {
-                    if (File.Exists($"{running_directory}dark_terminal_icon.png"))
-                        return Image.FromFile($"{running_directory}dark_terminal_icon.png");
-                    else
-                        return global::MissionPlanner.Properties.Resources.dark_terminal_icon;
-                }
-            }
+            //public override Image terminal
+            //{
+            //    get
+            //    {
+            //        if (File.Exists($"{running_directory}dark_terminal_icon.png"))
+            //            return Image.FromFile($"{running_directory}dark_terminal_icon.png");
+            //        else
+            //            return global::MissionPlanner.Properties.Resources.dark_terminal_icon;
+            //    }
+            //}
 
-            public override Image help
-            {
-                get
-                {
-                    if (File.Exists($"{running_directory}dark_help_icon.png"))
-                        return Image.FromFile($"{running_directory}dark_help_icon.png");
-                    else
-                        return global::MissionPlanner.Properties.Resources.dark_help_icon;
-                }
-            }
+            //public override Image help
+            //{
+            //    get
+            //    {
+            //        if (File.Exists($"{running_directory}dark_help_icon.png"))
+            //            return Image.FromFile($"{running_directory}dark_help_icon.png");
+            //        else
+            //            return global::MissionPlanner.Properties.Resources.dark_help_icon;
+            //    }
+            //}
 
-            public override Image donate
-            {
-                get
-                {
-                    if (File.Exists($"{running_directory}dark_donate_icon.png"))
-                        return Image.FromFile($"{running_directory}dark_donate_icon.png");
-                    else
-                        return global::MissionPlanner.Properties.Resources.donate;
-                }
-            }
+            //public override Image donate
+            //{
+            //    get
+            //    {
+            //        if (File.Exists($"{running_directory}dark_donate_icon.png"))
+            //            return Image.FromFile($"{running_directory}dark_donate_icon.png");
+            //        else
+            //            return global::MissionPlanner.Properties.Resources.donate;
+            //    }
+            //}
 
             public override Image connect
             {
@@ -326,16 +327,16 @@ namespace MissionPlanner
                 }
             }
 
-            public override Image wizard
-            {
-                get
-                {
-                    if (File.Exists($"{running_directory}dark_wizard_icon.png"))
-                        return Image.FromFile($"{running_directory}dark_wizard_icon.png");
-                    else
-                        return global::MissionPlanner.Properties.Resources.wizardicon;
-                }
-            }
+            //public override Image wizard
+            //{
+            //    get
+            //    {
+            //        if (File.Exists($"{running_directory}dark_wizard_icon.png"))
+            //            return Image.FromFile($"{running_directory}dark_wizard_icon.png");
+            //        else
+            //            return global::MissionPlanner.Properties.Resources.wizardicon;
+            //    }
+            //}
         }
 
         Controls.MainSwitcher MyView;
@@ -550,8 +551,8 @@ namespace MissionPlanner
 
         public void updateLayout(object sender, EventArgs e)
         {
-            MenuSimulation.Visible = DisplayConfiguration.displaySimulation;
-            MenuHelp.Visible = DisplayConfiguration.displayHelp;
+            //MenuSimulation.Visible = DisplayConfiguration.displaySimulation;
+            //MenuHelp.Visible = DisplayConfiguration.displayHelp;
             MissionPlanner.Controls.BackstageView.BackstageView.Advanced = DisplayConfiguration.isAdvancedMode;
 
             // force autohide on
@@ -1126,12 +1127,12 @@ namespace MissionPlanner
                 this.Icon = Icon.FromHandle(((Bitmap) Program.IconFile).GetHicon());
             }
 
-            MenuArduPilot.Image = new Bitmap(Properties.Resources._0d92fed790a3a70170e61a86db103f399a595c70,
-                (int) (200), 31);
-            MenuArduPilot.Width = MenuArduPilot.Image.Width;
+            //MenuArduPilot.Image = new Bitmap(Properties.Resources._0d92fed790a3a70170e61a86db103f399a595c70,
+            //    (int) (200), 31);
+            //MenuArduPilot.Width = MenuArduPilot.Image.Width;
 
-            if (Program.Logo2 != null)
-                MenuArduPilot.Image = Program.Logo2;
+            //if (Program.Logo2 != null)
+            //    MenuArduPilot.Image = Program.Logo2;
 
             Application.DoEvents();
 
@@ -1246,19 +1247,19 @@ namespace MissionPlanner
             MenuFlightData.Image = displayicons.fd;
             MenuFlightPlanner.Image = displayicons.fp;
             MenuInitConfig.Image = displayicons.initsetup;
-            MenuSimulation.Image = displayicons.sim;
+            //MenuSimulation.Image = displayicons.sim;
             MenuConfigTune.Image = displayicons.config_tuning;
             MenuConnect.Image = displayicons.connect;
-            MenuHelp.Image = displayicons.help;
+            //MenuHelp.Image = displayicons.help;
 
 
             MenuFlightData.ForeColor = ThemeManager.TextColor;
             MenuFlightPlanner.ForeColor = ThemeManager.TextColor;
             MenuInitConfig.ForeColor = ThemeManager.TextColor;
-            MenuSimulation.ForeColor = ThemeManager.TextColor;
+            //MenuSimulation.ForeColor = ThemeManager.TextColor;
             MenuConfigTune.ForeColor = ThemeManager.TextColor;
             MenuConnect.ForeColor = ThemeManager.TextColor;
-            MenuHelp.ForeColor = ThemeManager.TextColor;
+            //MenuHelp.ForeColor = ThemeManager.TextColor;
         }
 
         void adsb_UpdatePlanePosition(object sender, MissionPlanner.Utilities.adsb.PointLatLngAltHdg adsb)
@@ -3153,8 +3154,8 @@ namespace MissionPlanner
             MyView.AddScreen(new MainSwitcher.Screen("FlightPlanner", FlightPlanner, true));
             MyView.AddScreen(new MainSwitcher.Screen("HWConfig", typeof(GCSViews.InitialSetup), false));
             MyView.AddScreen(new MainSwitcher.Screen("SWConfig", typeof(GCSViews.SoftwareConfig), false));
-            MyView.AddScreen(new MainSwitcher.Screen("Simulation", Simulation, true));
-            MyView.AddScreen(new MainSwitcher.Screen("Help", typeof(GCSViews.Help), false));
+            //MyView.AddScreen(new MainSwitcher.Screen("Simulation", Simulation, true));
+            //MyView.AddScreen(new MainSwitcher.Screen("Help", typeof(GCSViews.Help), false));
 
             try
             {
@@ -4024,10 +4025,10 @@ namespace MissionPlanner
             log.Info("this   width " + this.Width + " height " + this.Height);
         }
 
-        private void MenuHelp_Click(object sender, EventArgs e)
-        {
-            MyView.ShowScreen("Help");
-        }
+        //private void MenuHelp_Click(object sender, EventArgs e)
+        //{
+        //    MyView.ShowScreen("Help");
+        //}
 
 
         /// <summary>
@@ -4784,6 +4785,11 @@ namespace MissionPlanner
                     break;
                 }
             }
+        }
+
+        private void MainV2_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

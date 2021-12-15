@@ -167,7 +167,7 @@ namespace MissionPlanner
                 return;
             }
 
-            name = "Mission Planner";
+            name = "Even Planner";
 
             try
             {
@@ -182,11 +182,11 @@ namespace MissionPlanner
             {
             }
 
-            if (File.Exists(Settings.GetRunningDirectory() + "logo.png"))
-                Logo = new Bitmap(Settings.GetRunningDirectory() + "logo.png");
+            //if (File.Exists(Settings.GetRunningDirectory() + "logo.png"))
+            //    Logo = new Bitmap(Settings.GetRunningDirectory() + "logo.png");
 
-            if (File.Exists(Settings.GetRunningDirectory() + "logo2.png"))
-                Logo2 = new Bitmap(Settings.GetRunningDirectory() + "logo2.png");
+            //if (File.Exists(Settings.GetRunningDirectory() + "logo2.png"))
+            //    Logo2 = new Bitmap(Settings.GetRunningDirectory() + "logo2.png");
 
             if (File.Exists(Settings.GetRunningDirectory() + "icon.png"))
             {
@@ -222,12 +222,12 @@ namespace MissionPlanner
             {
                 log.Error(ex);
             }
-
-            Splash = new MissionPlanner.Splash();
+            // ---------------------------------------------------------------------
+            Splash = new MissionPlanner.Splash();  // 创建程序启动界面
             if (SplashBG != null)
             {
                 Splash.BackgroundImage = SplashBG;
-                Splash.pictureBox1.Visible = false;
+                //Splash.pictureBox1.Visible = false;
             }
 
             Console.WriteLine("IconFile");
@@ -237,13 +237,14 @@ namespace MissionPlanner
             string strVersion = File.Exists("version.txt")
                 ? File.ReadAllText("version.txt")
                 : System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            Splash.Text = name + " " + Application.ProductVersion + " build " + strVersion;
+            Splash.Text = name ;
             Console.WriteLine("Splash.Show()");
-            Splash.Show();
+            Splash.Show();  // 显示程序启动界面
 
             Console.WriteLine("Debugger.IsAttached " + Debugger.IsAttached);
             if (Debugger.IsAttached)
                 Splash.TopMost = false;
+            // ---------------------------------------------------------------------
 
             Console.WriteLine("Application.DoEvents");
             Application.DoEvents();
